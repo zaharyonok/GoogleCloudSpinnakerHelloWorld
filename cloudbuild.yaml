@@ -1,0 +1,8 @@
+steps:
+  - name: "gcr.io/cloud-builders/go"
+    args: ["install", "github.com/zaharyonok/GoogleCloudSpinnakerHelloWorld"]
+    env: ["PROJECT_ROOT=github.com/zaharyonok/GoogleCloudSpinnakerHelloWorld"]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/evident-galaxy-196519/GoogleCloudSpinnakerHelloWorld:$REVISION_ID", "-f", "Dockerfile", "."]
+images:
+  - "gcr.io/evident-galaxy-196519/GoogleCloudSpinnakerHelloWorld:$REVISION_ID"
